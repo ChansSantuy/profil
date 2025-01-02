@@ -3,70 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="SMK Bina Siswa 2 Cililin adalah sekolah kejuruan unggulan di Cililin, memberikan pendidikan terbaik untuk generasi siap kerja.">
     <meta name="description" content="SMK Bina Siswa 2 Cililin adalah sekolah kejuruan yang berkomitmen untuk memberikan pendidikan terbaik bagi generasi muda yang siap terjun ke dunia industri.">
-    <meta name="keywords" content="SMK Bina Siswa 2 Cililin,Binsis2,Binsis 2,SMKS Bina Siswa 2 Cililin,Smk bina siswa 2,Smk bina siswa, sekolah kejuruan, pendidikan, keterampilan industri, PPDB Smk Bina siswa,Jurusan Smk Bina Siswa, ekstrakurikuler, sekolah di Cililin">
+    <meta name="keywords" content="SMK Bina Siswa 2 Cililin,Binsis2,Binsis 2,SMKS Bina Siswa 2 Cililin,Smk bina siswa 2,Smk bina siswa, sekolah kejuruan, pendidikan, Bina Siswa 2 Cililin PPDB Smk Bina siswa,Jurusan Smk Bina Siswa, bina siswa 2, sekolah di Cililin">
     <meta name="author" content="SMK Bina Siswa 2 Cililin">
-    <title>BINSIS 2</title>
+    <title>BINSIS 2</title> 
     <link rel="shortcut icon" type="image/x-icon" href="/static/Assets/Icon/Icon_sch.png" />
     <link rel="stylesheet" href="/static/dist/css/style.css" />
     <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-    <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
-    <style>
-   html {
-      scroll-behavior: smooth;
-  }
+    <link href="static/dist/css/library/tailwindmin.css" rel="stylesheet" />
+    <link rel="stylesheet" href="static/dist/css/library/animatemin.css" />
+    <link href="static/dist/css/library/flowbitemin.css" rel="stylesheet" />
+    <link rel="stylesheet" href="static/dist/css/library/swiperbundle.css"  />
+    <script src="static/dist/thailwind.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/all.min.css" rel="stylesheet" />
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        const titleText = [
+          "Selamat Datang di BINSIS2!",
+          "SMK BISA!!",
+          "SMK Bina Siswa 2 Cililin",
+          "BINSIS 2"
+        ];
 
-   /* Full-screen overlay for loading */
-   #loading {
-       position: fixed;
-       top: 0;
-       left: 0;
-       width: 100%;
-       height: 100%;
-       background-color: rgba(255, 255, 255, 0.9);
-       display: flex;
-       justify-content: center;
-       align-items: center;
-       z-index: 9999;
-   }
+        let currentTitleIndex = 0;
 
-   /* The loading spinner */
-   .spinner {
-       border: 4px solid #f3f3f3; 
-       border-top: 4px solid #3498db; 
-       border-radius: 50%;
-       width: 50px;
-       height: 50px;
-       animation: spin 2s linear infinite;
-   }
+        // Function to change the title with a fade effect simulation
+        function changeTitle() {
+          document.title = titleText[currentTitleIndex]; // Change the title text
 
-   @keyframes spin {
-       0% { transform: rotate(0deg); }
-       100% { transform: rotate(360deg); }
-   }
+          // Move to the next title after 4 seconds
+          currentTitleIndex = (currentTitleIndex + 1) % titleText.length;
+        }
 
-   /* Hide the page content initially */
-   body {
-       visibility: hidden;
-   }
-
-   /* Once loading is done, reveal the body */
-   body.loaded {
-       visibility: visible;
-   }
-</style>
-</head>
+        // Start changing the title at an interval of 4 seconds
+        setInterval(changeTitle, 4000); // Change title every 4 seconds
+      });
+    </script>
+  </head>
 <body>
-
-    <!-- Loading Overlay -->
-    <div id="loading">
-      <div class="spinner"></div>
-  </div>
 
 
     <!-- Navbar -->
@@ -74,7 +49,7 @@
       <nav class="container mx-auto flex justify-between items-center py-2">
         <!-- Logo Section -->
         <a class="navbar-brand flex items-center space-x-2 pl-4 md:pl-2 lg:ml-[-1.7em]">
-         <img src="/static/Assets/Icon/Icon_sch.png" alt="Logo SMK Bina Siswa 2 Cililin" class="w-10 h-10" id="navbar-icon">
+         <img src="/static/Assets/Icon/Icon_sch.png" alt="Logo SMK Bina Siswa 2 Cililin" class="w-10 h-10" id="navbar-icon" rel="preload">
          <h1 class="text-base subpixel-antialiased font-bold text-white font-poppins leading-tight uppercase">SMK Bina Siswa 2<br>Cililin</h1>
         </a>
     
@@ -93,22 +68,6 @@
           <li><a href="#login" class="text-white font-semibold hover:text-blue-400 hover:scale-110 transition-all duration-200 font-sans">Login</a></li>
         </ul>
     
-        <!-- Sidebar for Mobile -->
-        <div id="sidebar" class="fixed top-0 left-0 w-2/3 bg-gray-800 text-white h-full transform -translate-x-full md:hidden transition-transform duration-300 ease-in-out z-40">
-          <ul class="space-y-4 p-4">
-            <li><a href="#home" class="font-semibold hover:text-blue-400">Home</a></li>
-            <li><a href="#profil" class="font-semibold hover:text-blue-400">Profil</a></li>
-            <li><a href="#jurusan" class="font-semibold hover:text-blue-400">Jurusan</a></li>
-            <li><a href="#fasilitas" class="font-semibold hover:text-blue-400">Fasilitas</a></li>
-            <li><a href="#ekstrakurikuler" class="font-semibold hover:text-blue-400">Ekstrakurikuler</a></li>
-            <li><a href="#news" class="font-semibold hover:text-blue-400">News</a></li>
-            <li><a href="#gallery" class="font-semibold hover:text-blue-400">Gallery</a></li>
-            <li><a href="#ppdb" class="font-semibold hover:text-blue-400">Pendaftaran / PPDB</a></li>
-            <li><a href="#kontak" class="font-semibold hover:text-blue-400">Kontak</a></li>
-            <li><a href="#lowongan" class="font-semibold hover:text-blue-400">Lowongan Kerja</a></li>
-            <li><a href="#login" class="font-semibold hover:text-blue-400">Login</a></li>
-          </ul>
-        </div>
         <div id="overlay" class="fixed inset-0 bg-black opacity-50 z-30 hidden">
         </div>
     
@@ -122,14 +81,14 @@
 
             <div class="item swiper-slide">
                 <img
-                src="/static/Assets/Carousel/1.jpeg" alt="" class="slide-image">
+                src="/static/Assets/Carousel/1.jpeg" alt="halaman depan Smk Bina Siswa 2" class="slide-image" rel="preload">
                 <div class="carousel-background"></div>
               <div class="absolute mt-24 md:mt-16 inset-0 flex items-center justify-center z-20">
                 <div class="carousel-text text-center px-6 sm:px-8 md:px-16">
                   <div class="carousel-text ">
-                  <h2 class="text-2xl sm:text-3xl md:text-3xl font-bold text-white leading-snug">
-                    Selamat Datang di <br><span class="text-yellow-400 text-4xl">SMKS BINA SISWA<br class="md:hidden">2 CILILIN</span>
-                  </h2>
+                  <h1 class="text-2xl sm:text-3xl md:text-3xl font-bold text-white leading-snug">
+                    Selamat Datang di <br><span class="text-yellow-400 text-4xl">SMK BINA SISWA<br class="md:hidden">2 CILILIN</span>
+                  </h1>
                   <p class="text-base sm:text-lg md:text-lg text-gray-200 mt-2 max-w-2xl mx-auto leading-relaxed px-4 sm:px-6 md:px-0">
                     SMK Bina Siswa 2 Cililin adalah sekolah kejuruan yang berkomitmen untuk memberikan pendidikan terbaik bagi generasi muda yang siap terjun ke dunia industri. Dengan program keahlian yang relevan dan fasilitas modern, kami mempersiapkan siswa untuk menjadi tenaga profesional yang terampil dan siap bersaing di dunia kerja.
                   </p>
@@ -142,18 +101,18 @@
             </div>
 
             <div class="item swiper-slide">
-                <img src="/static/Assets/Carousel/2.jpeg" alt="" class="slide-image">
+                <img src="/static/Assets/Carousel/2.jpeg" alt="lingkungan Smk Bina Siswa 2" class="slide-image" rel="preload">
                 <div class="carousel-background"></div>
 
 <!-- MobileView -->
                 <div class="mobileViewText hidden">
                 <div class="absolute bottom-16 inset-0 flex items-center justify-center z-20">
                   <div class="carousel-text text-center  px-6 sm:px-8 md:px-16">
-                  <h2 class="text-2xl sm:text-3xl md:text-3xl font-bold text-white leading-snug">LINGKUNGAN YANG NYAMAN</h2>
+                  <h1 class="text-2xl sm:text-3xl md:text-3xl font-bold text-white leading-snug">LINGKUNGAN YANG NYAMAN</h1>
                   <div class=" bg-white bg-opacity-10 backdrop-blur-[2px] p-6 mt-3 rounded-lg shadow-xl max-w-2xl mx-auto">
-                    <p class="text-base sm:text-lg md:text-lg text-gray-200 mt-2 max-w-2xl mx-auto leading-relaxed md:px-0">
+                    <h2 class="text-base sm:text-lg md:text-lg text-gray-200 mt-2 max-w-2xl mx-auto leading-relaxed md:px-0">
                       Nikmati suasana belajar yang nyaman dan asri di SMK Bina Siswa 2 Cililin. Dengan fasilitas modern dan lingkungan yang mendukung, kami berkomitmen untuk memberikan pengalaman belajar terbaik.
-                    </p>
+                    </h2>
                   </div>
                   <button class="px-4 sm:px-6 py-2 bg-blue-500 text-white rounded-md mt-2 font-semibold hover:bg-blue-600 transition duration-300">
                     Lihat Fasilitas 
@@ -166,12 +125,12 @@
             <div class="desktopViewText  hidden">
               <div class="absolute top-[20%] mt-8 right-14 transform -translate-y-1/3 z-20 text-right">
                 <div class="carousel-text">
-                <h2 class="text-4xl font-bold text-white">
+                <h1 class="text-4xl font-bold text-white">
                         LINGKUNGAN BELAJAR YANG NYAMAN
-                    </h2>
-                    <p class="text-lg text-gray-300 mt-2 max-w-2xl mx-auto">
+                    </h1>
+                    <h2 class="text-lg text-gray-300 mt-2 max-w-2xl mx-auto">
                         Nikmati suasana belajar yang nyaman dan asri di SMK Bina Siswa 2 Cililin. Dengan fasilitas modern dan lingkungan yang mendukung, kami berkomitmen untuk memberikan pengalaman belajar terbaik.
-                    </p>
+                    </h2>
                     <button class="mt-4 px-6 py-2 bg-blue-500 text-white rounded-md font-semibold hover:bg-blue-600 transition duration-300">
                         Lihat Fasilitas 
                     </button>
@@ -183,8 +142,8 @@
 
             <div class="item swiper-slide" >
                 <img 
-                src="/static/Assets/Carousel/4.jpg"
-                alt=""
+                src="/static/Assets/Carousel/4.webp"
+                alt="Bengkel Otomotif Smk Bina Siswa 2"
                 class="slide-image"
                 >
                 <div class="carousel-background"></div>
@@ -193,11 +152,11 @@
                 <div class="desktopViewText hidden">
                 <div class="absolute top-[20%] mt-8 left-14 transform -translate-y-1/3 z-20 text-left">
                   <div class="carousel-text">
-                    <h2 class="text-4xl font-bold text-white">
+                    <h1 class="text-4xl font-bold text-white">
                       BENGKEL OTOMOTIF
-                    </h2>
-                    <p class="text-lg text-gray-300 mt-2 max-w-2xl mx-auto">
-                      Laboratorium Otomotif SMK Bina Siswa 2 CILILIN dilengkapi dengan peralatan dan komponen motor yang lengkap. Siswa belajar langsung dengan praktek di bengkel ini, yang dirancang untuk meningkatkan keterampilan mekanik dan pemahaman mendalam tentang mesin. Dengan dukungan instruktur berpengalaman, siswa dipersiapkan menjadi profesional otomotif yang siap bersaing di dunia kerja.                        </p>
+                    </h1>
+                    <h2 class="text-lg text-gray-300 mt-2 max-w-2xl mx-auto">
+                      Laboratorium Otomotif SMK Bina Siswa 2 CILILIN dilengkapi dengan peralatan dan komponen motor yang lengkap. Siswa belajar langsung dengan praktek di bengkel ini, yang dirancang untuk meningkatkan keterampilan mekanik dan pemahaman mendalam tentang mesin. Dengan dukungan instruktur berpengalaman, siswa dipersiapkan menjadi profesional otomotif yang siap bersaing di dunia kerja.                        </h2>
                     <button class="mt-4 px-6 py-2 bg-blue-500 text-white rounded-md font-semibold hover:bg-blue-600 transition duration-300">
                       Jelajahi Otomotif <!-- arahkan ke JURUSAN -->
                     </button>
@@ -209,13 +168,13 @@
           <div class="mobileViewText hidden">
             <div class="absolute bottom-12 inset-0 flex items-center justify-center z-20 top-12">
               <div class="carousel-text text-center  px-6 sm:px-8 md:px-16">
-                <h2 class="text-3xl sm:text-3xl md:text-3xl font-bold text-white leading-snug">
+                <h1 class="text-3xl sm:text-3xl md:text-3xl font-bold text-white leading-snug">
                   BENGKEL OTOMOTIF
-                </h2>
+                </h1>
                 <div class=" bg-white bg-opacity-10 backdrop-blur-[2px] p-6 mt-3 rounded-lg shadow-xl max-w-2xl mx-auto">
 
-                <p class="text-base sm:text-lg md:text-lg text-gray-200 mt-2 max-w-2xl mx-auto leading-relaxed px-4 sm:px-6 md:px-0">
-                  Laboratorium Otomotif SMK Bina Siswa 2 CILILIN dilengkapi dengan peralatan dan komponen motor yang lengkap. Siswa belajar langsung dengan praktek di bengkel ini, yang dirancang untuk meningkatkan keterampilan mekanik dan pemahaman mendalam tentang mesin. Dengan dukungan instruktur berpengalaman, siswa dipersiapkan menjadi profesional otomotif yang siap bersaing di dunia kerja.                        </p>
+                <h2 class="text-base sm:text-lg md:text-lg text-gray-200 mt-2 max-w-2xl mx-auto leading-relaxed px-4 sm:px-6 md:px-0">
+                  Laboratorium Otomotif SMK Bina Siswa 2 CILILIN dilengkapi dengan peralatan dan komponen motor yang lengkap. Siswa belajar langsung dengan praktek di bengkel ini, yang dirancang untuk meningkatkan keterampilan mekanik dan pemahaman mendalam tentang mesin. Dengan dukungan instruktur berpengalaman, siswa dipersiapkan menjadi profesional otomotif yang siap bersaing di dunia kerja.                        </h2>
                 </div>
 
                   <button class="mt-2 px-6 py-2 bg-blue-500 text-white rounded-md font-semibold hover:bg-blue-600 transition duration-300">
@@ -230,7 +189,7 @@
             <div class="item swiper-slide">
                 <img 
                 src="/static/Assets/Carousel/5.jpg"
-                alt=""
+                alt="Laboratorium komputer Smk Bina Siswa 2"
                 class="slide-image"
                 >
                 <div class="carousel-background"></div>
@@ -238,11 +197,11 @@
                 <div class="desktopViewText hidden">
                 <div class="absolute top-[20%] mt-8 right-14 transform -translate-y-1/3 z-20 text-right">
                   <div class="carousel-text">
-                  <h2 class="text-4xl font-bold text-white">
+                  <h1 class="text-4xl font-bold text-white">
                     LABORATORIUM KOMPUTER
-                    </h2>
-                    <p class="text-lg text-gray-300 mt-2 max-w-2xl mx-auto">
-                      Laboratorium Komputer SMK Bina Siswa 2 CILILIN menyediakan fasilitas komputer modern untuk menunjang pembelajaran teknologi informasi. Siswa belajar pemrograman, jaringan, dan berbagai keterampilan teknologi yang dibutuhkan di era digital. Dengan bimbingan dari guru yang kompeten, siswa dapat mengembangkan kompetensi yang diperlukan untuk bersaing di industri teknologi                          </p>
+                    </h1>
+                    <h2 class="text-lg text-gray-300 mt-2 max-w-2xl mx-auto">
+                      Laboratorium Komputer SMK Bina Siswa 2 CILILIN menyediakan fasilitas komputer modern untuk menunjang pembelajaran teknologi informasi. Siswa belajar pemrograman, jaringan, dan berbagai keterampilan teknologi yang dibutuhkan di era digital. Dengan bimbingan dari guru yang kompeten, siswa dapat mengembangkan kompetensi yang diperlukan untuk bersaing di industri teknologi                          </h2>
                     <button class="mt-4 px-6 py-2 bg-blue-500 text-white rounded-md font-semibold hover:bg-blue-600 transition duration-300">
                       Jelajahi Informatika <!-- arahkan ke JURUSAN -->
                     </button>
@@ -253,13 +212,13 @@
             <div class="mobileViewText hidden">
               <div class="absolute bottom-12 inset-0 flex items-center justify-center z-20 top-5 top-12">
                 <div class="carousel-text text-center  px-6 sm:px-8 md:px-16">
-                  <h2 class="text-3xl font-bold text-white">
+                  <h1 class="text-3xl font-bold text-white">
                     LABORATORIUM KOMPUTER
-                  </h2>
+                  </h1>
                   <div class=" bg-white bg-opacity-10 backdrop-blur-[2px] p-6 mt-3 rounded-lg shadow-xl max-w-2xl mx-auto">
 
-                  <p class="text-base sm:text-lg md:text-lg text-gray-200 mt-2 max-w-2xl mx-auto leading-relaxed px-4 sm:px-6 md:px-0">
-                    Laboratorium Komputer SMK Bina Siswa 2 CILILIN menyediakan fasilitas komputer modern untuk menunjang pembelajaran teknologi informasi. Siswa belajar pemrograman, jaringan, dan berbagai keterampilan teknologi yang dibutuhkan di era digital. Dengan bimbingan dari guru yang kompeten, siswa dapat mengembangkan kompetensi yang diperlukan untuk bersaing di industri teknologi                          </p>
+                  <h2 class="text-base sm:text-lg md:text-lg text-gray-200 mt-2 max-w-2xl mx-auto leading-relaxed px-4 sm:px-6 md:px-0">
+                    Laboratorium Komputer SMK Bina Siswa 2 CILILIN menyediakan fasilitas komputer modern untuk menunjang pembelajaran teknologi informasi. Siswa belajar pemrograman, jaringan, dan berbagai keterampilan teknologi yang dibutuhkan di era digital. Dengan bimbingan dari guru yang kompeten, siswa dapat mengembangkan kompetensi yang diperlukan untuk bersaing di industri teknologi                          </h2>
                   </div>
 
                     <button class="mt-2 px-6 py-2 bg-blue-500 text-white rounded-md font-semibold hover:bg-blue-600 transition duration-300">
@@ -275,7 +234,7 @@
           <div class="item swiper-slide">
             <img 
             src="/static/Assets/Carousel/Luar-2.jpg"
-            alt=""
+            alt="halaman depan Smk Bina Siswa 2"
             class="slide-image"
             >
             <div class="carousel-background"></div>
@@ -284,13 +243,13 @@
               <!-- Teks di sebelah kiri -->
               <div class="absolute top-1/3 left-14 transform -translate-y-1/3 z-20 text-left">
                 <div class="carousel-text">
-                  <h2 class="text-4xl font-bold text-white">
+                  <h1 class="text-4xl font-bold text-white">
                     Temukan Kenyamanan Belajar di<br> SMK Bina Siswa 2 Cililin
-                  </h2>
-                  <p class="text-lg text-gray-300 mt-2 max-w-2xl mx-auto">
+                  </h1>
+                  <h2 class="text-lg text-gray-300 mt-2 max-w-2xl mx-auto">
                     Di SMK Bina Siswa 2 Cililin, kami percaya bahwa kebersamaan dan kerjasama adalah kunci kesuksesan. 
                     Dengan tenaga pengajar yang berdedikasi, kami membimbing siswa menjadi generasi yang siap bersaing di dunia kerja.
-                  </p>
+                  </h2>
                   <button class="mt-4 px-6 py-2 bg-blue-500 text-white rounded-md font-semibold hover:bg-blue-600 transition duration-300">
                     Daftar Sekarang
                   </button>
@@ -309,7 +268,7 @@
                   <form action="#" method="POST" class="space-y-4">
                     <div>
                       <label for="name" class="block text-white text-sm">Nama</label>
-                      <input type="text" id="name" name="name" class="w-full p-2 mt-1 bg-transparent border border-gray-300 rounded-md text-white placeholder-gray-300 focus:ring-2 focus:ring-blue-500 outline-none" placeholder="Nama Anda">
+                      <input type="text" name="name" class="w-full p-2 mt-1 bg-transparent border border-gray-300 rounded-md text-white placeholder-gray-300 focus:ring-2 focus:ring-blue-500 outline-none" placeholder="Nama Anda">
                     </div>
                     <div>
                       <label for="contact" class="block text-white text-sm">Email/WA</label>
@@ -368,183 +327,193 @@
 
 <main>
 
-
-  <section id="header_main" class="container mx-auto p-4 ">
+  
+  <section id="header_main" class="container mx-auto p-4">
     <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-
-      <div id="profil" class="col-span-1">
-        <div class="bg-white shadow-lg rounded-lg">
-            <div class="bg-blue-900 text-white p-4 rounded-t-lg">
-                <h2 class="text-lg font-semibold">
-                    Profil Sekolah
-                </h2>
-            </div>
-            <ul class="divide-y divide-gray-200">
-                <li class="p-4 text-[#4482f6] hover:text-[#eab313] hover:bg-gray-100 cursor-pointer">
-                  BIO DATA SEKOLAH SMK BINA SISWA 2 CILILIN
-                </li>
-                <li class="p-4 text-[#4482f6] hover:text-[#eab313] hover:bg-gray-100 cursor-pointer">
-                  DATA GURU DAN TENAGA PENDIDIK
-                </li>
-                <li class="p-4 text-[#4482f6] hover:text-[#eab313] hover:bg-gray-100 cursor-pointer">
-                  STRUKTUR ORGANISASI
-                </li>
-                <li class="p-4 text-[#4482f6] hover:text-[#eab313] hover:bg-gray-100 cursor-pointer">
-                  FASILITAS SEKOLAH
-                </li>
-                <li class="p-4 text-[#4482f6] hover:text-[#eab313] hover:bg-gray-100 cursor-pointer">
-                  PRESTASI AKADEMIK DAN NON-AKADEMIK
-                </li>
-                <li class="p-4 text-[#4482f6] hover:text-[#eab313] hover:bg-gray-100 cursor-pointer">
-                  PROGRAM KEAHLIAN DAN EKSTRAKURIKULER
-                </li>
-            </ul>
+  
+      <!-- Card Profil Sekolah -->
+      <div id="profil" class="w-full md:col-span-1 flex flex-col">
+        <div class="bg-white shadow-lg rounded-lg flex-grow">
+          <div class="bg-blue-900 text-white p-4 rounded-t-lg">
+            <h2 class="text-lg font-semibold">
+              <span class="sr-only">Profil Sekolah SMK Bina Siswa 2 Cililin</span>
+              Profil Sekolah
+            </h2>
+          </div>
+          <ul class="divide-y divide-gray-200" aria-label="Profil Sekolah">
+            <li class="p-4 text-[#4482f6] hover:text-[#eab313] hover:bg-gray-100 cursor-pointer">
+              <a href="/bio-data-sekolah" title="Lihat Bio Data Sekolah SMK Bina Siswa 2 Cililin">
+                BIO DATA SEKOLAH SMK BINA SISWA 2 CILILIN
+              </a>
+            </li>
+            <li class="p-4 text-[#4482f6] hover:text-[#eab313] hover:bg-gray-100 cursor-pointer">
+              <a href="/data-guru-dan-tenaga-pendidik" title="Lihat Data Guru dan Tenaga Pendidik">
+                DATA GURU DAN TENAGA PENDIDIK
+              </a>
+            </li>
+            <li class="p-4 text-[#4482f6] hover:text-[#eab313] hover:bg-gray-100 cursor-pointer">
+              <a href="/struktur-organisasi" title="Lihat Struktur Organisasi Sekolah">
+                STRUKTUR ORGANISASI
+              </a>
+            </li>
+            <li class="p-4 text-[#4482f6] hover:text-[#eab313] hover:bg-gray-100 cursor-pointer">
+              <a href="/fasilitas-sekolah" title="Lihat Fasilitas Sekolah">
+                FASILITAS SEKOLAH
+              </a>
+            </li>
+            <li class="p-4 text-[#4482f6] hover:text-[#eab313] hover:bg-gray-100 cursor-pointer">
+              <a href="/prestasi-akademik-dan-non-akademik" title="Lihat Prestasi Akademik dan Non Akademik">
+                PRESTASI AKADEMIK DAN NON-AKADEMIK
+              </a>
+            </li>
+            <li class="p-4 text-[#4482f6] hover:text-[#eab313] hover:bg-gray-100 cursor-pointer">
+              <a href="/program-keahlian-dan-ekstrakurikuler" title="Lihat Program Keahlian dan Ekstrakurikuler">
+                PROGRAM KEAHLIAN DAN EKSTRAKURIKULER
+              </a>
+            </li>
+          </ul>
         </div>
-    </div>
-    
-
-    <div class="col-span-2">
-      <div class="bg-white shadow-md rounded-lg p-4">
-      
-        <div class=" p-2 ">
-          <h2 class="text-2xl font-bold mb-4 text-gray-800">
-            Kata Sambutan
-          </h2>
-          <p class="italic text-lg text-gray-600">
-            Bismillahirrohmanirrohim
-          </p>
-          <p class="italic text-lg text-gray-600 mb-4">
-            Assalamu'alaikum Wr. Wb.
-          </p>
-          <div class="text-justify">
-          <p class="text-base leading-relaxed text-gray-700 mb-4">
-            Segala puji hanya untuk Allah SWT dan shalawat serta salam semoga tercurah atas nabi yang terakhir, yaitu nabi kita Muhammad SAW, begitu pula atas keluarga, para sahabat dan para pengikutnya.
-          </p>
-          <p class="text-base leading-relaxed text-gray-700 mb-4">
-            Alhamdulillahi robbil alamin kami panjatkan kehadirat Tuhan Allah SWT, bahwasannya dengan rahmat dan karunia-Nya lah akhirnya Website sekolah ini dengan domain
-            <span class=" text-blue-500 hover:text-blue-700 ">
-             https://smkbinasiswa2cililin.my.id/   
-            </span>
-            dapat kami perbaharui dan kembangkan. Kami mengucapkan selamat datang di Website kami SMK Bina Siswa 2 Cililin
-          </p>
-          <div>
-          <a 
-            class="text-blue-500 font-semibold hover:text-blue-700 inline-flex items-center mt-4" 
-            href="#" 
-            target="_blank"
-          >
-            Read More
-            <i class="fas fa-chevron-right ml-2"></i>
-          </a>
-        </div>
-        
       </div>
+  
+      <!-- Card Kata Sambutan -->
+      <div class="w-full md:col-span-2 flex flex-col">
+        <div class="bg-white shadow-md rounded-lg p-4 flex-grow">
+          <div class="p-2">
+            <h1 class="text-2xl font-bold mb-4 text-gray-800">
+              Kata Sambutan
+            </h1>
+            <p class="text-lg text-gray-600 mb-4">
+              Salam hangat dan selamat datang di website SMK Bina Siswa 2 Cililin.
+            </p>
+            <div class="text-justify">
+              <p class="text-base leading-relaxed text-gray-700 mb-4">
+                Dengan penuh rasa bangga, kami persembahkan platform digital ini sebagai jendela informasi dan komunikasi bagi seluruh masyarakat, terutama untuk peserta didik, orang tua, guru, dan mitra kami.
+              </p>
+              <p class="text-base leading-relaxed text-gray-700 mb-4">
+                Website ini dirancang untuk menyediakan informasi terkini tentang sekolah kami, termasuk berbagai program pendidikan, kegiatan siswa, prestasi, serta fasilitas yang tersedia. Kami berharap platform ini dapat menjadi sumber informasi yang bermanfaat dan membantu.
+              </p>
+              <div>
+                <a
+                  href="/kata-sambutan"
+                  class="text-blue-500 font-semibold hover:text-blue-700 inline-flex items-center mt-4"
+                  title="Baca lebih lanjut tentang kata sambutan kepala sekolah"
+                >
+                  Read More
+                  <i class="fas fa-chevron-right ml-2"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  
     </div>
-    
+  </section>
+      
+  <section id="visimisi" class="relative mb-8 mt-16 lg:mx-10 opacity-0 transform translate-y-10 transition-all duration-700 bg-gradient-to-b from-[#eef4fb] to-blue-50">
+    <div class="flex flex-wrap lg:flex-nowrap justify-center items-stretch gap-8">
+      <!-- Card Misi -->
+      <article 
+        class="visimisi-card bg-blue-500 p-6 mx-5 rounded-lg shadow-lg shadow-blue-700 text-white w-full lg:w-1/2 flex-grow"
+        aria-label="Misi SMK Bina Siswa 2 Cililin"
+      >
+        <h2 class="text-base sm:text-lg lg:text-xl font-bold mb-4 tracking-wide" id="misi-smk">
+          Misi
+        </h2>
+        <ul class="list-disc ml-5 space-y-2 text-sm sm:text-base lg:text-base leading-loose sm:font-medium lg:font-normal ">
+          <li>Mempersiapkan lulusan yang berkompeten dan mempunyai keahlian.</li>
+          <li>Mempersiapkan lulusan yang mampu bekerja di dunia usaha dan industri.</li>
+          <li>Mempersiapkan lulusan yang menguasai IPTEX dan IMTAQ.</li>
+        </ul>
+      </article>
+  
+      <!-- Card Visi -->
+      <article 
+        class="visimisi-card bg-yellow-500 p-6 mx-5 rounded-lg shadow-lg shadow-yellow-700 text-white w-full lg:w-1/2 flex-grow"
+        aria-label="Visi SMK Bina Siswa 2 Cililin"
+      >
+        <h2 class="text-base sm:text-lg lg:text-xl font-bold mb-4 tracking-wide" id="visi-smk">
+          Visi
+        </h2>
+        <p class="text-sm sm:text-base lg:text-base leading-loose sm:font-medium lg:font-normal text-justify">
+          Menjadi salah satu SMK yang unggul dalam bidang olahraga, ilmu, dan kesenian serta 
+          dapat menghasilkan peserta didik profesional dan mampu memanfaatkan peluang kerja di era globalisasi.
+        </p>
+      </article>
     </div>
-   </div>
-  </div>
-</section>
-
-<section id="visimisi" class="relative mb-8 mt-16 lg:mx-10 opacity-0 transform translate-y-10 transition-all duration-700 ">
-  <div class="flex flex-wrap lg:flex-nowrap justify-center items-start gap-8">
-    <!-- Primary Card (Visi) -->
-    <article class="visimisi-card bg-blue-500 p-6 mx-5 rounded-lg shadow-lg shadow-blue-700 text-white w-full lg:w-1/2">
-      <h3 class="text-lg lg:text-xl font-semibold mb-4 tracking-wide">Misi</h3>
-      <ul class="list-disc ml-5 space-y-2 text-sm lg:text-base leading-loose sm:font-medium lg:font-normal text-justify">
-        <li>Mempersiapkan lulusan yang berkompeten dan mempunyai keahlian.</li>
-        <li>Mempersiapkan lulusan yang mampu bekerja di dunia usaha dan industri.</li>
-        <li>Mempersiapkan lulusan yang menguasai IPTEX dan IMTAQ.</li>
-      </ul>
-    </article>
-
-    <!-- Base Card (Misi) -->
-    <article class="visimisi-card bg-yellow-500 p-6 mx-5 rounded-lg shadow-lg shadow-yellow-700 text-white w-full lg:w-1/2">
-      <h3 class="text-lg lg:text-xl font-semibold mb-4 tracking-wide">Visi</h3>
-      <p class="text-sm lg:text-base leading-loose sm:font-medium lg:font-normal text-justify">
-        Menjadi salah satu SMK yang unggul dalam bidang olahraga, ilmu, dan kesenian serta 
-        dapat menghasilkan peserta didik profesional dan mampu memanfaatkan peluang kerja di era globalisasi.
-      </p>
-    </article>
-  </div>
-</section>
-
-<section id="jurusan" class="relative mb-16 opacity-0 mt-40 transform translate-y-10 transition-all duration-700 bg-gradient-to-b from-blue-50 to-blue-50">
-   <div class="mb-8 mx-5"></div>
-   <div class="flex flex-wrap gap-10 justify-center">
- 
-     <!-- Jurusan Card 2 -->
-     <div class="jurusan_card flex items-center w-full lg:w-5/6 flex-row-reverse">
-       <!-- Image on the right -->
-       <div class="w-full mr-[-10px] lg:w-1/2 pr-6 mt-6 lg:mt-0 lg:ml-16">
-         <img 
-           src="static/Assets/Icon/TKJ_ICON.png" 
-           alt="Jurusan TKJ" 
-           class="w-[300px] h-auto rounded-lg shadow-transparent"
-           style="filter: drop-shadow(4px 4px 6px rgba(0, 0, 0, 0.5));"
-         >
-       </div>
- 
-       <!-- Text on the left -->
-       <div class="w-full lg:w-5/6 mt-6 lg:mt-0 mx-5">
-         <h3 class="text-xl lg:text-2xl font-semibold mb-4 text-gray-800">Jurusan Teknik Komputer dan Jaringan (TKJ)</h3>
-         <p class="leading-relaxed text-gray-600 text-justify text-sm lg:text-base mt-4">
-           Jurusan Teknik Komputer dan Jaringan (TKJ) adalah program keahlian yang berfokus pada penguasaan teknologi informasi, terutama dalam bidang komputer dan jaringan. Siswa akan belajar tentang instalasi perangkat keras, pengelolaan perangkat lunak, dan pemeliharaan jaringan komputer, baik lokal (LAN) maupun internet.
-         </p>
-         <p class="leading-relaxed text-gray-600 text-justify text-sm lg:text-base mt-4 hidden lg:block">
-           Dengan menguasai keterampilan komputer dan jaringan ini, lulusan jurusan TKJ dapat bekerja sebagai teknisi komputer, 
-           spesialis jaringan, atau bahkan mendirikan usaha layanan perbaikan komputer dan instalasi jaringan di era digital yang terus berkembang.
-         </p>
-       </div>
-     </div>
- 
-     <!-- Jurusan Card 3 -->
-     <div class="jurusan_card flex w-full lg:w-5/6">
-       <!-- Image on the left -->
-       <div class="w-full ml-[-10px] lg:w-1/2 pl-6 mt-6 lg:mt-0">
-         <img src="static/Assets/Icon/TSM_ICON.png" alt="Jurusan TSM" class="w-[300px] h-auto rounded-lg" style="filter: drop-shadow(4px 4px 6px rgba(0, 0, 0, 0.5));">
-       </div>
- 
-       <!-- Text on the right -->
-       <div class="w-full lg:w-5/6 mx-5 mt-6 lg:mt-0 text-left">
-         <h3 class="text-xl lg:text-2xl font-semibold mb-4 text-gray-800">Jurusan Teknik Sepeda Motor (TSM)</h3>
-         <p class="leading-relaxed text-gray-600 text-justify text-sm lg:text-base">
-           Jurusan Teknik Sepeda Motor (TSM) memiliki tujuan untuk mendidik dan menghasilkan tenaga kerja yang
-           handal dan siap di bidang perbaikan, perawatan, dan modifikasi sepeda motor. Siswa di jurusan ini akan
-           belajar mengenai teknik dasar sepeda motor, sistem mesin, kelistrikan, serta pemeliharaan dan perbaikan kendaraan
-           bermotor.
-         </p>
-         <p class="leading-relaxed text-gray-600 text-justify text-sm lg:text-base mt-4 hidden lg:block">
-           Dengan pelatihan yang praktis dan teoritis, siswa diharapkan bisa berkompeten di dunia industri, khususnya dalam
-           bidang reparasi sepeda motor dan pengembangan teknologi motor di masa depan. Jurusan ini memberikan kesempatan untuk
-           berkembang di dunia otomotif, baik secara profesional maupun sebagai wirausaha.
-         </p>
-       </div>
-     </div>
-     
-   </div>
- </section>
- 
-
+  </section>
+      
+  <section id="jurusan" class="relative opacity-0 mt-40 transform translate-y-10 transition-all duration-700 bg-gradient-to-b from-[#eef4fb] to-gray-100">
+    <div class="mb-8 mx-5"></div>
+    <div class="flex flex-wrap gap-10 justify-center">
+  
+      <!-- Jurusan Card 1 -->
+      <div class="jurusan_card flex flex-col lg:flex-row items-center w-full lg:w-5/6 flex-row-reverse md:mb-[8em] mt-[-2em]">
+        <!-- Image Jurusan Card 1 -->
+        <div class="w-full lg:w-1/2 md:pr-6 mt-6 lg:mt-0 lg:ml-16 flex justify-center">
+          <img 
+            src="static/Assets/Icon/TKJ_ICON.png" 
+            alt="Jurusan Teknik Komputer dan Jaringan - SMK Bina Siswa 2 Cililin" 
+            class="w-[300px] h-auto rounded-lg shadow-transparent"
+            style="filter: drop-shadow(4px 4px 6px rgba(0, 0, 0, 0.5));"
+          >
+        </div>
+  
+        <!-- Text Jurusan Card 1 -->
+        <div class="w-full lg:w-5/6 mt-6 lg:mt-0 mx-5 text-center lg:text-left">
+          <h2 class="text-xl lg:text-2xl font-semibold mb-4 text-gray-800 mx-4 md:mx-0">Jurusan Teknik Komputer dan Jaringan (TKJ)</h2>
+          <p class="leading-relaxed text-gray-600 text-justify text-sm lg:text-base mt-4 mx-5 md:mx-0">
+            Jurusan Teknik Komputer dan Jaringan (TKJ) di SMK Bina Siswa 2 Cililin adalah program keahlian yang berfokus pada penguasaan teknologi informasi, terutama dalam bidang komputer dan jaringan. Siswa akan belajar tentang instalasi perangkat keras, pengelolaan perangkat lunak, dan pemeliharaan jaringan komputer, baik lokal (LAN) maupun internet.
+          </p>
+          <p class="leading-relaxed text-gray-600 text-justify text-sm lg:text-base mt-4 hidden lg:block">
+            Dengan menguasai keterampilan komputer dan jaringan ini, lulusan jurusan TKJ dapat bekerja sebagai teknisi komputer, spesialis jaringan, atau bahkan mendirikan usaha layanan perbaikan komputer dan instalasi jaringan di era digital yang terus berkembang.
+          </p>
+        </div>
+      </div>
+  
+      <!-- Jurusan Card 2 -->
+      <div class="jurusan_card flex flex-col lg:flex-row items-center w-full lg:w-5/6 mb-[5em]">
+        <!-- Image Jurusan Card 2 -->
+        <div class="w-full lg:w-1/2 md:pl-6 mt-6 lg:mt-0 flex justify-center">
+          <img src="static/Assets/Icon/TSM_ICON.png" alt="Jurusan Teknik Sepeda Motor - SMK Bina Siswa 2 Cililin" class="w-[300px] h-auto rounded-lg" style="filter: drop-shadow(4px 4px 6px rgba(0, 0, 0, 0.5));">
+        </div>
+  
+        <!-- Text  Jurusan Card 2-->
+        <div class="w-full lg:w-5/6 mx-5 mt-6 lg:mt-0 text-center lg:text-left">
+          <h2 class="text-xl lg:text-2xl font-semibold mb-4 text-gray-800 mx-4 md:mx-0">Jurusan Teknik Sepeda Motor (TSM) </h2>
+          <p class="leading-relaxed text-gray-600 text-justify text-sm lg:text-base mx-5 md:mx-0">
+            Jurusan Teknik Sepeda Motor (TSM) di SMK Bina Siswa 2 Cililin memiliki tujuan untuk mendidik dan menghasilkan tenaga kerja yang handal dan siap di bidang perbaikan, perawatan, dan modifikasi sepeda motor. Siswa di jurusan ini akan belajar mengenai teknik dasar sepeda motor, sistem mesin, kelistrikan, serta pemeliharaan dan perbaikan kendaraan bermotor.
+          </p>
+          <p class="leading-relaxed text-gray-600 text-justify text-sm lg:text-base mt-4 hidden lg:block">
+            Dengan pelatihan yang praktis dan teoritis, siswa diharapkan bisa berkompeten di dunia industri, khususnya dalam bidang reparasi sepeda motor dan pengembangan teknologi motor di masa depan. Jurusan ini memberikan kesempatan untuk berkembang di dunia otomotif, baik secara profesional maupun sebagai wirausaha.
+          </p>
+        </div>
+      </div>
+      
+    </div>
+  </section>
+  
  <section id="Rekapitulasi" class="flex items-center justify-center min-h-screen pt-12 bg-gradient-to-b from-gray-100 to-blue-50">
    <div class="w-full max-w-5xl">
-     <!-- Header Section -->
+     <!-- Header Section REKAPITULASI -->
      <div class="text-center mb-8">
        <h1 class="text-4xl font-bold text-gray-800">REKAPITULASI</h1>
        <p class="text-gray-600 mt-2">Ikhtisar data jumlah pengajar, pelajar, dan ruang kelas</p>
      </div>
  
-     <!-- Cards Section -->
+     <!-- Cards Section REKAPITULASI-->
      <div id="cards" class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:bg-white lg:rounded-lg lg:shadow-lg p-8">
        <!-- Card 1 -->
        <div id="card-teacher" class="card text-center flex flex-col items-center opacity-0">
          <div class="mb-2 group">
-           <img 
-             src="static/Assets/Icon/TEACHER_ICON.gif" 
-             alt="TEACHER" 
-             class="w-[80px] h-auto rounded-lg transition-transform duration-300 transform group-hover:scale-110 group-hover:rotate-6"
-             style="filter: drop-shadow(4px 4px 6px rgba(0, 0, 0, 0.5));">
-         </div>
+
+          <video preload="auto" autoplay loop muted alt="TEACHER" 
+          class="w-[80px] h-auto rounded-lg transition-transform duration-300 transform group-hover:scale-110 group-hover:rotate-6"
+          style="filter: drop-shadow(4px 4px 6px rgba(0, 0, 0, 0.5));">
+            <source src="static/Assets/Icon/TEACHER_ICON.webm" type="video/webm" > 
+          </video>
+        
+        </div>
          <div id="TEACHER_ICON" class="Rekapitulasi text-2xl font-semibold text-gray-800" data-target-number="20">0</div>
          <div class="text-gray-600">PENGAJAR</div>
        </div>
@@ -552,11 +521,13 @@
        <!-- Card 2 -->
        <div id="card-student" class="card text-center flex flex-col items-center opacity-0">
          <div class="mb-2 group">
-           <img 
-             src="static/Assets/Icon/STUDENT_ICON.gif" 
-             alt="STUDENT_ICON" 
-             class="w-[80px] h-auto rounded-lg transition-transform duration-300 transform group-hover:scale-110 group-hover:rotate-6"
-             style="filter: drop-shadow(4px 4px 6px rgba(0, 0, 0, 0.5));">
+
+          <video preload="auto" autoplay loop muted alt="STUDENT_ICON" 
+          class="w-[80px] h-auto rounded-lg transition-transform duration-300 transform group-hover:scale-110 group-hover:rotate-6"
+          style="filter: drop-shadow(4px 4px 6px rgba(0, 0, 0, 0.5));">
+            <source src="static/Assets/Icon/STUDENT_ICON.webm" type="video/webm" > 
+          </video>
+          
          </div>
          <div id="STUDENT_ICON" class="Rekapitulasi text-2xl font-semibold text-gray-800" data-target-number="422">0</div>
          <div class="text-gray-600">PELAJAR</div>
@@ -565,11 +536,13 @@
        <!-- Card 3 -->
        <div id="card-class" class="card text-center flex flex-col items-center opacity-0">
          <div class="mb-2 group">
-           <img 
-             src="static/Assets/Icon/CLASS_ICON.gif" 
-             alt="CLASS_ICON" 
-             class="w-[80px] h-auto rounded-lg transition-transform duration-300 transform group-hover:scale-110 group-hover:rotate-6"
-             style="filter: drop-shadow(4px 4px 6px rgba(0, 0, 0, 0.5));">
+          <video preload="auto" autoplay loop muted alt="CLASS_ICON" 
+          class="w-[80px] h-auto rounded-lg transition-transform duration-300 transform group-hover:scale-110 group-hover:rotate-6"
+          style="filter: drop-shadow(4px 4px 6px rgba(0, 0, 0, 0.5));">
+            <source src="static/Assets/Icon/CLASS_ICON.webm" type="video/webm" > 
+          </video>
+          
+
          </div>
          <div id="CLASS_ICON" class="Rekapitulasi text-2xl font-semibold text-gray-800" data-target-number="19">0</div>
          <div class="text-gray-600">RUANGAN</div>
@@ -581,7 +554,7 @@
 
  <section id="FasilitasSekolah" class="py-14 mx-5 bg-gradient-to-b from-blue-50 to-white">
    <div class="w-full max-w-5xl mx-auto text-center">
-     <!-- Section Header -->
+     <!-- Section Header FasilitasSekolah -->
      <div class="mb-12">
        <h2 class="text-3xl font-semibold text-gray-800">Fasilitas</h2>
        <p class="text-gray-600 mt-2">BERBAGAI FASILITAS YANG TERSEDIA UNTUK MENDUKUNG KEGIATAN BELAJAR MENGAJAR</p>
@@ -637,7 +610,7 @@
 
 <!-- Ekskul Section -->
 <div id="ekstrakurikuler" class="bg-gradient-to-b from-white to-gray-100 py-14 ">
-  <div class="w-full max-w-5xl mx-auto text-center">
+  <div class="w-full md:max-w-5xl mx-auto text-center">
     <!-- Section Header -->
     <div class="mb-12 mx-5">
       <h2 class="text-3xl font-semibold text-gray-800">Ekstrakurikuler</h2>
@@ -753,7 +726,7 @@
 <!-- Card 13: Tari -->
 <div class="swiper-slide h-[12.5rem] bg-gradient-to-l from-pink-300 to-pink-500 rounded-lg shadow-md p-6 text-center flex flex-col items-center hover:scale-105 transform transition-all duration-300">
   <div class="icon bg-white w-16 h-16 flex items-center justify-center rounded-full mx-auto mb-4">
-    <img id="icon-badminton" 
+    <img id="icon-tari" 
     src="/static/Assets/Icon/Dance.png" 
     alt="Badminton Icon" 
     class="w-[48px] ml-[2px] object-contain">
@@ -803,24 +776,20 @@
         <form class="space-y-4">
           <div>
             <label for="name" class="block text-sm font-medium text-gray-700">Nama</label>
-            <input type="text" id="name" placeholder="Masukkan nama Anda" 
-              class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
-          </div>
-          <div>
-            <label for="email" class="block text-sm font-medium text-gray-700">Whatsapp</label>
-            <input type="email" id="email" placeholder="Masukkan email Anda" 
-              class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
+            <input type="text" placeholder="Masukkan nama Anda" 
+              class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 text-black">
           </div>
           <div>
             <label for="message" class="block text-sm font-medium text-gray-700">Pesan</label>
-            <textarea id="message" rows="4" placeholder="Tuliskan pesan Anda" 
-              class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"></textarea>
+            <textarea rows="4" placeholder="Tuliskan pesan Anda" 
+              class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 text-black"></textarea>
           </div>
           <button type="submit" class="w-full py-2 px-4 bg-indigo-600 text-white font-semibold rounded-lg shadow-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500">
             Kirim
           </button>
         </form>
       </div>
+      
     </div>
   </div>
 </section>
@@ -840,120 +809,116 @@
     <script>
       
       $(document).ready(function () {
-        const swiper = new Swiper('.swiper-container', {
-          loop: true,
-          autoplay: {
-            delay: 5000, // Waktu delay antara slide (5 detik)
-          },
-          speed: 800, // Kecepatan transisi antar slide
-          effect: 'fade', // Efek transisi fade-in dan fade-out
-          fadeEffect: {
-            crossFade: true, // Menambahkan efek cross-fade
-          },
-          allowTouchMove: true, // Swipe dengan touch atau drag diaktifkan
-          keyboard: {
-            enabled: true,
-          },
-          pagination: {
-            el: '.swiper-pagination', // Elemen pagination
-            clickable: true, // Pagination bisa diklik
-          },
-        });
-      
-        // Fungsi untuk memulai animasi masuk
-        function animateIn(element) {
-          element
-            .css('visibility', 'visible')
-            .addClass('animate__animated animate__fadeInUp')
-            .one('animationend', function () {
-              $(this).removeClass('animate__fadeInUp');
-            });
-        }
-      
-        // Fungsi untuk memulai animasi keluar
-        function animateOut(element) {
-          element
-            .addClass('animate__animated animate__fadeOutDown')
-            .one('animationend', function () {
-              $(this).css('visibility', 'hidden').removeClass('animate__fadeOutDown');
-            });
-        }
-      
-        // Animasi awal pada slide pertama
-        const initialSlide = $('.swiper-slide-active').find('.carousel-background, .carousel-text');
-        animateInSequence(initialSlide);
-      
-        // Fungsi untuk memulai animasi masuk dengan urutan yang spesifik
-        function animateInSequence(slideElements) {
-          const background = slideElements.filter('.carousel-background');
-          background
-            .css('visibility', 'visible')
-            .addClass('animate__animated animate__fadeIn')
-            .one('animationend', function () {
-              $(this).removeClass('animate__fadeIn');
-      
-              const textElements = slideElements.filter('.carousel-text').children();
-              animateTextSequentially(textElements);
-            });
-        }
-      
-        // Fungsi untuk memulai animasi text secara berurutan
-        function animateTextSequentially(textElements) {
-          textElements.each(function (index) {
-            const element = $(this);
-      
-            setTimeout(() => {
-              element
-                .css('visibility', 'visible')
-                .addClass('animate__animated animate__fadeIn')
-                .one('animationend', function () {
-                  $(this).removeClass('animate__fadeIn');
-                });
-            }, index * 300); // Delay antar elemen (300ms)
-          });
-        }
-      
-        // Event untuk transisi slide (next atau previous)
-        swiper.on('slideChangeTransitionStart', function () {
-          const previousSlide = $('.swiper-slide-prev').find('.carousel-text');
-          animateOut(previousSlide);
-      
-          const newSlide = $('.swiper-slide-active').find('.carousel-text');
-          animateIn(newSlide);
-        });
-      
-        swiper.on('slidePrevTransitionStart', function () {
-          const nextSlide = $('.swiper-slide-next').find('.carousel-text');
-          animateOut(nextSlide);
-      
-          const newSlide = $('.swiper-slide-active').find('.carousel-text');
-          animateIn(newSlide);
-        });
-      
-        // Pause and resume autoplay based on visibility
-        const swiperContainer = document.querySelector('.swiper-container');
-        const observer = new IntersectionObserver(
-          (entries) => {
-            entries.forEach((entry) => {
-              if (entry.isIntersecting) {
-                // Resume autoplay
-                swiper.autoplay.start();
-              } else {
-                // Pause autoplay
-                swiper.autoplay.stop();
-              }
-            });
-          },
-          { threshold: 0.5 } // Swiper akan dianggap terlihat jika 50% elemen masuk viewport
-        );
-      
-        observer.observe(swiperContainer);
+  const swiper = new Swiper('.swiper-container', {
+    loop: true,
+    autoplay: {
+      delay: 5000, // Waktu delay antara slide (5 detik)
+    },
+    speed: 1000, // Kecepatan transisi antar slide (lebih lambat agar lebih smooth)
+    effect: 'fade', // Efek transisi fade-in dan fade-out
+    fadeEffect: {
+      crossFade: true, // Menambahkan efek cross-fade
+    },
+    allowTouchMove: true, // Swipe dengan touch atau drag diaktifkan
+    keyboard: {
+      enabled: true,
+    },
+    pagination: {
+      el: '.swiper-pagination', // Elemen pagination
+      clickable: true, // Pagination bisa diklik
+    },
+    on: {
+      // Ketika slide berubah
+      slideChangeTransitionStart: function () {
+        const previousSlide = $('.swiper-slide-prev').find('.carousel-text');
+        animateOut(previousSlide);
+
+        const newSlide = $('.swiper-slide-active').find('.carousel-text');
+        animateIn(newSlide);
+      },
+      slidePrevTransitionStart: function () {
+        const nextSlide = $('.swiper-slide-next').find('.carousel-text');
+        animateOut(nextSlide);
+
+        const newSlide = $('.swiper-slide-active').find('.carousel-text');
+        animateIn(newSlide);
+      }
+    }
+  });
+
+  // Fungsi untuk memulai animasi masuk
+  function animateIn(element) {
+    element
+      .css('visibility', 'visible')
+      .addClass('animate__animated animate__fadeInUp')
+      .one('animationend', function () {
+        $(this).removeClass('animate__fadeInUp');
       });
-      
-      
-    </script>
-    
-    
+  }
+
+  // Fungsi untuk memulai animasi keluar
+  function animateOut(element) {
+    element
+      .addClass('animate__animated animate__fadeOutDown')
+      .one('animationend', function () {
+        $(this).css('visibility', 'hidden').removeClass('animate__fadeOutDown');
+      });
+  }
+
+  // Animasi awal pada slide pertama
+  const initialSlide = $('.swiper-slide-active').find('.carousel-background, .carousel-text');
+  animateInSequence(initialSlide);
+
+  // Fungsi untuk memulai animasi masuk dengan urutan yang spesifik
+  function animateInSequence(slideElements) {
+    const background = slideElements.filter('.carousel-background');
+    background
+      .css('visibility', 'visible')
+      .addClass('animate__animated animate__fadeIn')
+      .one('animationend', function () {
+        $(this).removeClass('animate__fadeIn');
+
+        const textElements = slideElements.filter('.carousel-text').children();
+        animateTextSequentially(textElements);
+      });
+  }
+
+  // Fungsi untuk memulai animasi text secara berurutan
+  function animateTextSequentially(textElements) {
+    textElements.each(function (index) {
+      const element = $(this);
+
+      setTimeout(() => {
+        element
+          .css('visibility', 'visible')
+          .addClass('animate__animated animate__fadeIn')
+          .one('animationend', function () {
+            $(this).removeClass('animate__fadeIn');
+          });
+      }, index * 300); // Delay antar elemen (300ms)
+    });
+  }
+
+  // Pause and resume autoplay based on visibility
+  const swiperContainer = document.querySelector('.swiper-container');
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          // Resume autoplay
+          swiper.autoplay.start();
+        } else {
+          // Pause autoplay
+          swiper.autoplay.stop();
+        }
+      });
+    },
+    { threshold: 0.5 } // Swiper akan dianggap terlihat jika 50% elemen masuk viewport
+  );
+
+  observer.observe(swiperContainer);
+});
+    </script>   
     <script>
 
         
@@ -1180,25 +1145,64 @@ document.addEventListener("DOMContentLoaded", () => {
 
   
     </script>
-    <script>
-      // Wait for the window to load completely (including images)
-      window.onload = function () {
-          // Hide the loading animation
-          document.getElementById("loading").style.display = 'none';
-          // Show the page content
-          document.body.classList.add("loaded");
-      };
-
-        // Optional: Highlight the active link when clicked
-        const links = document.querySelectorAll('#menu a');
-
-        links.forEach(link => {
-            link.addEventListener('click', function () {
-                links.forEach(link => link.classList.remove('active'));
-                this.classList.add('active');
-            });
-        });
-  </script>
-
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "EducationalOrganization",
+      "name": "SMK Bina Siswa 2 Cililin",
+      "url": "https://smkbinasiswa2cililin.my.id/",
+      "logo": "https://smkbinasiswa2cililin.my.id/static/Assets/Icon/Icon_sch.png",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Jl. Pasir Panjang Tj. Sari No.10",
+        "addressLocality": "Waduk",
+        "addressRegion": "West Bandung Regency",
+        "addressCountry": "ID",
+        "postalCode": "40562"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+62-812-2176-3848",
+        "contactType": "Customer Service",
+        "areaServed": "ID",
+        "availableLanguage": "Bahasa Indonesia"
+      },
+      "sameAs": [
+      "https://facebook.com/SmkBinaSiswa2Cililin",
+      "https://www.instagram.com/smkbinasiswa2",
+      "https://www.tiktok.com/@smkbinsis2cililin",
+      "https://dapo.kemdikbud.go.id/sekolah/DB1562F8C420FF433C0E"
+      ],
+      "educationalCredentialAwarded": "Diploma",
+      "department": [
+        {
+          "@type": "Department",
+          "name": "Jurusan Teknik Komputer dan Jaringan (TKJ)"
+        },
+        {
+          "@type": "Department",
+          "name": "Jurusan Teknik & Bisnis Sepeda Motor"
+        }
+      ],
+      "identifier": {
+        "@type": "PropertyValue",
+        "name": "NPSN",
+        "value": "20279922"
+      },
+      "status": "Swasta",
+      "educationalOccupationalCredential": "SMK",
+      "ownership": "Yayasan",
+      "foundingDate": "2011-06-20",
+      "legalName": "SMK Bina Siswa 2 Cililin",
+      "schoolType": "SMK",
+      "registrationNumber": "421.3/109",
+      "operationalLicense": "421/4150/Disdikpora 2013",
+      "contact": {
+        "telephone": "081221763848"
+      }
+    }
+    
+    </script>
+    
 </body>
 </html>
