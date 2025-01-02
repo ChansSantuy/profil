@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="SMK Bina Siswa 2 Cililin adalah sekolah kejuruan unggulan di Cililin, memberikan pendidikan terbaik untuk generasi siap kerja.">
     <meta name="description" content="SMK Bina Siswa 2 Cililin adalah sekolah kejuruan yang berkomitmen untuk memberikan pendidikan terbaik bagi generasi muda yang siap terjun ke dunia industri.">
-    <meta name="keywords" content="SMK Bina Siswa 2 Cililin,Binsis2,Binsis 2,SMKS Bina Siswa 2 Cililin,Smk bina siswa 2,Smk bina siswa, sekolah kejuruan, pendidikan, Bina Siswa 2 Cililin PPDB Smk Bina siswa,Jurusan Smk Bina Siswa, bina siswa 2, sekolah di Cililin">
+    <meta name="keywords" content="SMK Bina Siswa 2 Cililin,smk bina siswa 2,smk bina siswa 2 cililin,sekolah di cililin,smk di cililin,bina siswa,smk bina siswa,Binsis2,Binsis 2,SMKS Bina Siswa 2 Cililin,Smk bina siswa 2,Smk bina siswa, sekolah kejuruan, pendidikan, Bina Siswa 2 Cililin ,PPDB Smk Bina siswa,Jurusan Smk Bina Siswa, bina siswa 2, sekolah di Cililin,sekolah di rancapanggung,smk di rancapanggung">
     <meta name="author" content="SMK Bina Siswa 2 Cililin">
-    <title>BINSIS 2</title> 
+    <title>SMK Bina Siswa 2 Cililin - Sekolah Kejuruan Teknologi Terbaik di Cililin</title> 
     <link rel="shortcut icon" type="image/x-icon" href="/static/Assets/Icon/Icon_sch.png" />
     <link rel="stylesheet" href="/static/dist/css/style.css" />
     <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
@@ -17,6 +17,404 @@
     <link rel="stylesheet" href="static/dist/css/library/swiperbundle.css"  />
     <script src="static/dist/thailwind.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/all.min.css" rel="stylesheet" />
+        <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script>
+      
+      $(document).ready(function () {
+  const swiper = new Swiper('.swiper-container', {
+    loop: true,
+    autoplay: {
+      delay: 5000, // Waktu delay antara slide (5 detik)
+    },
+    speed: 1000, // Kecepatan transisi antar slide (lebih lambat agar lebih smooth)
+    effect: 'fade', // Efek transisi fade-in dan fade-out
+    fadeEffect: {
+      crossFade: true, // Menambahkan efek cross-fade
+    },
+    allowTouchMove: true, // Swipe dengan touch atau drag diaktifkan
+    keyboard: {
+      enabled: true,
+    },
+    pagination: {
+      el: '.swiper-pagination', // Elemen pagination
+      clickable: true, // Pagination bisa diklik
+    },
+    on: {
+      // Ketika slide berubah
+      slideChangeTransitionStart: function () {
+        const previousSlide = $('.swiper-slide-prev').find('.carousel-text');
+        animateOut(previousSlide);
+
+        const newSlide = $('.swiper-slide-active').find('.carousel-text');
+        animateIn(newSlide);
+      },
+      slidePrevTransitionStart: function () {
+        const nextSlide = $('.swiper-slide-next').find('.carousel-text');
+        animateOut(nextSlide);
+
+        const newSlide = $('.swiper-slide-active').find('.carousel-text');
+        animateIn(newSlide);
+      }
+    }
+  });
+
+  // Fungsi untuk memulai animasi masuk
+  function animateIn(element) {
+    element
+      .css('visibility', 'visible')
+      .addClass('animate__animated animate__fadeInUp')
+      .one('animationend', function () {
+        $(this).removeClass('animate__fadeInUp');
+      });
+  }
+
+  // Fungsi untuk memulai animasi keluar
+  function animateOut(element) {
+    element
+      .addClass('animate__animated animate__fadeOutDown')
+      .one('animationend', function () {
+        $(this).css('visibility', 'hidden').removeClass('animate__fadeOutDown');
+      });
+  }
+
+  // Animasi awal pada slide pertama
+  const initialSlide = $('.swiper-slide-active').find('.carousel-background, .carousel-text');
+  animateInSequence(initialSlide);
+
+  // Fungsi untuk memulai animasi masuk dengan urutan yang spesifik
+  function animateInSequence(slideElements) {
+    const background = slideElements.filter('.carousel-background');
+    background
+      .css('visibility', 'visible')
+      .addClass('animate__animated animate__fadeIn')
+      .one('animationend', function () {
+        $(this).removeClass('animate__fadeIn');
+
+        const textElements = slideElements.filter('.carousel-text').children();
+        animateTextSequentially(textElements);
+      });
+  }
+
+  // Fungsi untuk memulai animasi text secara berurutan
+  function animateTextSequentially(textElements) {
+    textElements.each(function (index) {
+      const element = $(this);
+
+      setTimeout(() => {
+        element
+          .css('visibility', 'visible')
+          .addClass('animate__animated animate__fadeIn')
+          .one('animationend', function () {
+            $(this).removeClass('animate__fadeIn');
+          });
+      }, index * 300); // Delay antar elemen (300ms)
+    });
+  }
+
+  // Pause and resume autoplay based on visibility
+  const swiperContainer = document.querySelector('.swiper-container');
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          // Resume autoplay
+          swiper.autoplay.start();
+        } else {
+          // Pause autoplay
+          swiper.autoplay.stop();
+        }
+      });
+    },
+    { threshold: 0.5 } // Swiper akan dianggap terlihat jika 50% elemen masuk viewport
+  );
+
+  observer.observe(swiperContainer);
+});
+    </script>   
+    <script>
+
+        
+     
+      
+        // Scroll effect pada navbar
+        $(window).on('scroll', function () {
+          if ($(window).scrollTop() > 0) {
+            $('#navbar').addClass('navbar-scrolled');
+          } else {
+            $('#navbar').removeClass('navbar-scrolled');
+          }
+        });
+        
+// Listen to scroll event
+ window.addEventListener('scroll', function () {
+  const navbar = document.getElementById('navbar');
+  if (window.scrollY > 0) {
+    navbar.classList.add('navbar-blur'); // Apply blur effect
+  } else {
+    navbar.classList.remove('navbar-blur'); // Remove blur effect
+  }
+});
+      
+      $(document).ready(function () {
+        // Elemen target
+        const desktopViewText = $('.desktopViewText');
+        const mobileViewText = $('.mobileViewText');
+      
+        // Fungsi untuk memeriksa perangkat
+        function isMobileDevice() {
+          return window.innerWidth < 768; // Ubah breakpoint sesuai kebutuhan
+        }
+      
+        // Fungsi untuk mengatur visibilitas elemen
+        function toggleView() {
+          if (isMobileDevice()) {
+            desktopViewText.addClass('hidden'); // Sembunyikan desktop view
+            mobileViewText.removeClass('hidden'); // Tampilkan mobile view
+            
+          } else {
+            desktopViewText.removeClass('hidden'); // Tampilkan desktop view
+            mobileViewText.addClass('hidden'); // Sembunyikan mobile view
+          }
+        }
+      
+        // Panggil fungsi saat halaman dimuat
+        toggleView();
+      
+        // Panggil fungsi saat ukuran layar berubah
+        $(window).on('resize', function () {
+          toggleView();
+        });
+      });
+      
+
+
+      $(window).on('scroll', function () {
+        // visimisi Section Scroll Animation
+        const visimisiSection = $('#visimisi');
+        const visimisiOffset = visimisiSection.offset().top - $(window).height() / 1.5;
+        const secondJurusanSection = $('#jurusan').children().eq(1); // Ambil Jurusan kedua
+        const secondJurusanOffset = secondJurusanSection.offset().top - $(window).height() / 2;
+    
+        if ($(window).scrollTop() > visimisiOffset) {
+            visimisiSection.addClass('scrolled');
+        }
+    
+        // Hide visimisi when scrolling past second Jurusan
+        if ($(window).scrollTop() > secondJurusanOffset) {
+            visimisiSection.removeClass('scrolled').css('visibility', 'hidden');
+        } else {
+            visimisiSection.css('visibility', 'visible');
+        }
+    
+        // Handle each card in visimisi Section
+        $('.visimisi-card').each(function (index) {
+            const cardOffset = $(this).offset().top - $(window).height() / 1.5;
+            const isVisible = $(window).scrollTop() > cardOffset;
+    
+            if (isVisible) {
+                $(this).addClass('scrolled').css('animation-delay', (index * 0.3) + 's'); // Delay per kartu
+            } else {
+                $(this).removeClass('scrolled'); // Hilangkan class jika di luar jangkauan
+            }
+        });
+    
+        // Jurusan Section Scroll Animation
+        const jurusanSection = $('#jurusan');
+        const jurusanOffset = jurusanSection.offset().top - $(window).height() / 1.2;
+    
+        if ($(window).scrollTop() > jurusanOffset) {
+            jurusanSection.addClass('scrolled');
+    
+            // Animasi setiap jurusan_card satu per satu
+            $('.jurusan_card').each(function (index) {
+                const jurusanOffset = $(this).offset().top - $(window).height() / 2;
+                const isVisible = $(window).scrollTop() > jurusanOffset && $(window).scrollTop() < jurusanOffset + $(this).outerHeight();
+    
+                // Tambahkan animasi sesuai urutan scroll
+                if (isVisible) {
+                    $(this).addClass('scrolled').css('animation-delay', (index * 0.2) + 's');
+                } else {
+                    $(this).removeClass('scrolled'); // Hilangkan class jika di luar jangkauan
+                }
+            });
+        } else {
+            // Fade-out seluruh jurusan_card jika keluar dari section
+            $('.jurusan_card').removeClass('scrolled');
+            jurusanSection.removeClass('scrolled');
+        }
+    });
+    
+    
+      
+  // Memeriksa apakah #Rekapitulasi sudah masuk dalam viewport
+const Rekapitulasi = document.getElementById("Rekapitulasi");
+const cards = document.querySelectorAll(".card");
+
+let delay = 0; // Variabel untuk menambahkan jeda waktu antara card
+
+const observer = new IntersectionObserver((entries, observer) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      // Menambahkan animasi pada card yang berada dalam viewport
+      entry.target.classList.remove("opacity-0");
+      entry.target.classList.add("animate__animated", "animate__bounceInUp");
+      entry.target.style.animationDelay = `${delay}s`; // Menambahkan jeda waktu
+
+      // Meningkatkan delay setiap kali card muncul
+      delay += 0.2;
+
+      // Menjalankan penghitung setelah animasi selesai
+      const Rekapitulasi = document.querySelectorAll(".Rekapitulasi");
+
+      Rekapitulasi.forEach((num) => {
+        const incrementCounter = () => {
+          const targetNumber = +num.getAttribute("data-target-number");
+          const currentNumber = parseInt(num.innerText.replace(/,/g, "")) || 0;
+
+          // Tentukan langkah berdasarkan targetNumber
+          const increment = Math.max(1, Math.floor(targetNumber / 100)); // Minimal langkah adalah 1
+
+          if (currentNumber < targetNumber) {
+            num.innerText = Math.min(currentNumber + increment, targetNumber).toLocaleString();
+            setTimeout(incrementCounter, 10);
+          } else {
+            num.innerText = targetNumber.toLocaleString();
+          }
+        };
+        incrementCounter();
+      });
+
+      // Setelah animasi selesai, observer bisa berhenti
+      observer.unobserve(entry.target);
+    }
+  });
+}, {
+  threshold: 0.5 // Ketika 50% dari card sudah terlihat di viewport
+});
+
+// Menambahkan observer pada setiap card
+cards.forEach(card => {
+  observer.observe(card);
+});
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  const cards = document.querySelectorAll("#FasilitasSekolah .card_facility");
+  const observerOptions = {
+    threshold: 0.1, // Cards akan mulai terlihat saat 10% dari elemennya masuk viewport
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, index) => {
+      if (entry.isIntersecting) {
+        // Tambahkan delay untuk animasi bertahap
+        setTimeout(() => {
+          entry.target.classList.add(
+            "animate__animated",
+            "animate__fadeInUpBig"
+          );
+          entry.target.classList.remove("opacity-0");
+        }, index * 200); // Delay setiap card 200ms
+      }
+    });
+  }, observerOptions);
+
+  // Observe setiap card
+  cards.forEach((card) => observer.observe(card));
+});
+
+
+
+  const swiper = new Swiper('.ekskul-swiper', {
+      loop: true,
+  spaceBetween: 20,
+  slidesPerView: 1,
+  autoplay: {
+    delay: 1000, // 3 seconds delay for auto-swiping
+    disableOnInteraction: false, // Continue auto-swiping even after interaction
+  },
+  breakpoints: {
+    640: {
+      slidesPerView: 2, // 2 cards per view for small screens
+    },
+    1024: {
+      slidesPerView: 3, // 3 cards per view for large screens
+    },
+  },
+  speed: 800, // Smooth transition speed for each slide
+});
+
+  // Add hover animation on icons
+  const icons = document.querySelectorAll('i');
+  icons.forEach(icon => {
+    icon.addEventListener('mouseover', () => {
+      icon.classList.add('animate__animated', 'animate__pulse');
+    });
+    icon.addEventListener('animationend', () => {
+      icon.classList.remove('animate__animated', 'animate__pulse');
+    });
+  });
+
+  
+    </script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "EducationalOrganization",
+      "name": "SMK Bina Siswa 2 Cililin",
+      "url": "https://smkbinasiswa2cililin.my.id/",
+      "logo": "https://smkbinasiswa2cililin.my.id/static/Assets/Icon/Icon_sch.png",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Jl. Pasir Panjang Tj. Sari No.10",
+        "addressLocality": "Waduk",
+        "addressRegion": "West Bandung Regency",
+        "addressCountry": "ID",
+        "postalCode": "40562"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+62-812-2176-3848",
+        "contactType": "Customer Service",
+        "areaServed": "ID",
+        "availableLanguage": "Bahasa Indonesia"
+      },
+      "sameAs": [
+      "https://facebook.com/SmkBinaSiswa2Cililin",
+      "https://www.instagram.com/smkbinasiswa2",
+      "https://www.tiktok.com/@smkbinsis2cililin",
+      "https://dapo.kemdikbud.go.id/sekolah/DB1562F8C420FF433C0E"
+      ],
+      "educationalCredentialAwarded": "Diploma",
+      "department": [
+        {
+          "@type": "Department",
+          "name": "Jurusan Teknik Komputer dan Jaringan (TKJ)"
+        },
+        {
+          "@type": "Department",
+          "name": "Jurusan Teknik & Bisnis Sepeda Motor"
+        }
+      ],
+      "identifier": {
+        "@type": "PropertyValue",
+        "name": "NPSN",
+        "value": "20279922"
+      },
+      "status": "Swasta",
+      "educationalOccupationalCredential": "SMK",
+      "ownership": "Yayasan",
+      "foundingDate": "2011-06-20",
+      "legalName": "SMK Bina Siswa 2 Cililin",
+      "schoolType": "SMK",
+      "registrationNumber": "421.3/109",
+      "operationalLicense": "421/4150/Disdikpora 2013",
+      "contact": {
+        "telephone": "081221763848"
+      }
+    }
+    
+    </script>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
         const titleText = [
@@ -48,10 +446,10 @@
     <header id="navbar" class="fixed top-0 w-full navbar-transparent z-50 text-white select-none transition-all duration-300 navbar-blur">
       <nav class="container mx-auto flex justify-between items-center py-2">
         <!-- Logo Section -->
-        <a class="navbar-brand flex items-center space-x-2 pl-4 md:pl-2 lg:ml-[-1.7em]">
+        <div class="navbar-brand flex items-center space-x-2 pl-4 md:pl-2 lg:ml-[-1.7em]">
          <img src="/static/Assets/Icon/Icon_sch.png" alt="Logo SMK Bina Siswa 2 Cililin" class="w-10 h-10" id="navbar-icon" rel="preload">
          <h1 class="text-base subpixel-antialiased font-bold text-white font-poppins leading-tight uppercase">SMK Bina Siswa 2<br>Cililin</h1>
-        </a>
+        </div>
     
         <!-- Navigation Links -->
         <ul id="menu" class="hidden md:flex space-x-3 md:space-x-4 text-sm">
@@ -805,404 +1203,7 @@
       </div>
     </footer>
 
-    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-    <script>
-      
-      $(document).ready(function () {
-  const swiper = new Swiper('.swiper-container', {
-    loop: true,
-    autoplay: {
-      delay: 5000, // Waktu delay antara slide (5 detik)
-    },
-    speed: 1000, // Kecepatan transisi antar slide (lebih lambat agar lebih smooth)
-    effect: 'fade', // Efek transisi fade-in dan fade-out
-    fadeEffect: {
-      crossFade: true, // Menambahkan efek cross-fade
-    },
-    allowTouchMove: true, // Swipe dengan touch atau drag diaktifkan
-    keyboard: {
-      enabled: true,
-    },
-    pagination: {
-      el: '.swiper-pagination', // Elemen pagination
-      clickable: true, // Pagination bisa diklik
-    },
-    on: {
-      // Ketika slide berubah
-      slideChangeTransitionStart: function () {
-        const previousSlide = $('.swiper-slide-prev').find('.carousel-text');
-        animateOut(previousSlide);
 
-        const newSlide = $('.swiper-slide-active').find('.carousel-text');
-        animateIn(newSlide);
-      },
-      slidePrevTransitionStart: function () {
-        const nextSlide = $('.swiper-slide-next').find('.carousel-text');
-        animateOut(nextSlide);
-
-        const newSlide = $('.swiper-slide-active').find('.carousel-text');
-        animateIn(newSlide);
-      }
-    }
-  });
-
-  // Fungsi untuk memulai animasi masuk
-  function animateIn(element) {
-    element
-      .css('visibility', 'visible')
-      .addClass('animate__animated animate__fadeInUp')
-      .one('animationend', function () {
-        $(this).removeClass('animate__fadeInUp');
-      });
-  }
-
-  // Fungsi untuk memulai animasi keluar
-  function animateOut(element) {
-    element
-      .addClass('animate__animated animate__fadeOutDown')
-      .one('animationend', function () {
-        $(this).css('visibility', 'hidden').removeClass('animate__fadeOutDown');
-      });
-  }
-
-  // Animasi awal pada slide pertama
-  const initialSlide = $('.swiper-slide-active').find('.carousel-background, .carousel-text');
-  animateInSequence(initialSlide);
-
-  // Fungsi untuk memulai animasi masuk dengan urutan yang spesifik
-  function animateInSequence(slideElements) {
-    const background = slideElements.filter('.carousel-background');
-    background
-      .css('visibility', 'visible')
-      .addClass('animate__animated animate__fadeIn')
-      .one('animationend', function () {
-        $(this).removeClass('animate__fadeIn');
-
-        const textElements = slideElements.filter('.carousel-text').children();
-        animateTextSequentially(textElements);
-      });
-  }
-
-  // Fungsi untuk memulai animasi text secara berurutan
-  function animateTextSequentially(textElements) {
-    textElements.each(function (index) {
-      const element = $(this);
-
-      setTimeout(() => {
-        element
-          .css('visibility', 'visible')
-          .addClass('animate__animated animate__fadeIn')
-          .one('animationend', function () {
-            $(this).removeClass('animate__fadeIn');
-          });
-      }, index * 300); // Delay antar elemen (300ms)
-    });
-  }
-
-  // Pause and resume autoplay based on visibility
-  const swiperContainer = document.querySelector('.swiper-container');
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          // Resume autoplay
-          swiper.autoplay.start();
-        } else {
-          // Pause autoplay
-          swiper.autoplay.stop();
-        }
-      });
-    },
-    { threshold: 0.5 } // Swiper akan dianggap terlihat jika 50% elemen masuk viewport
-  );
-
-  observer.observe(swiperContainer);
-});
-    </script>   
-    <script>
-
-        
-     
-      
-        // Scroll effect pada navbar
-        $(window).on('scroll', function () {
-          if ($(window).scrollTop() > 0) {
-            $('#navbar').addClass('navbar-scrolled');
-          } else {
-            $('#navbar').removeClass('navbar-scrolled');
-          }
-        });
-        
-// Listen to scroll event
- window.addEventListener('scroll', function () {
-  const navbar = document.getElementById('navbar');
-  if (window.scrollY > 0) {
-    navbar.classList.add('navbar-blur'); // Apply blur effect
-  } else {
-    navbar.classList.remove('navbar-blur'); // Remove blur effect
-  }
-});
-      
-      $(document).ready(function () {
-        // Elemen target
-        const desktopViewText = $('.desktopViewText');
-        const mobileViewText = $('.mobileViewText');
-      
-        // Fungsi untuk memeriksa perangkat
-        function isMobileDevice() {
-          return window.innerWidth < 768; // Ubah breakpoint sesuai kebutuhan
-        }
-      
-        // Fungsi untuk mengatur visibilitas elemen
-        function toggleView() {
-          if (isMobileDevice()) {
-            desktopViewText.addClass('hidden'); // Sembunyikan desktop view
-            mobileViewText.removeClass('hidden'); // Tampilkan mobile view
-            
-          } else {
-            desktopViewText.removeClass('hidden'); // Tampilkan desktop view
-            mobileViewText.addClass('hidden'); // Sembunyikan mobile view
-          }
-        }
-      
-        // Panggil fungsi saat halaman dimuat
-        toggleView();
-      
-        // Panggil fungsi saat ukuran layar berubah
-        $(window).on('resize', function () {
-          toggleView();
-        });
-      });
-      
-
-
-      $(window).on('scroll', function () {
-        // visimisi Section Scroll Animation
-        const visimisiSection = $('#visimisi');
-        const visimisiOffset = visimisiSection.offset().top - $(window).height() / 1.5;
-        const secondJurusanSection = $('#jurusan').children().eq(1); // Ambil Jurusan kedua
-        const secondJurusanOffset = secondJurusanSection.offset().top - $(window).height() / 2;
-    
-        if ($(window).scrollTop() > visimisiOffset) {
-            visimisiSection.addClass('scrolled');
-        }
-    
-        // Hide visimisi when scrolling past second Jurusan
-        if ($(window).scrollTop() > secondJurusanOffset) {
-            visimisiSection.removeClass('scrolled').css('visibility', 'hidden');
-        } else {
-            visimisiSection.css('visibility', 'visible');
-        }
-    
-        // Handle each card in visimisi Section
-        $('.visimisi-card').each(function (index) {
-            const cardOffset = $(this).offset().top - $(window).height() / 1.5;
-            const isVisible = $(window).scrollTop() > cardOffset;
-    
-            if (isVisible) {
-                $(this).addClass('scrolled').css('animation-delay', (index * 0.3) + 's'); // Delay per kartu
-            } else {
-                $(this).removeClass('scrolled'); // Hilangkan class jika di luar jangkauan
-            }
-        });
-    
-        // Jurusan Section Scroll Animation
-        const jurusanSection = $('#jurusan');
-        const jurusanOffset = jurusanSection.offset().top - $(window).height() / 1.2;
-    
-        if ($(window).scrollTop() > jurusanOffset) {
-            jurusanSection.addClass('scrolled');
-    
-            // Animasi setiap jurusan_card satu per satu
-            $('.jurusan_card').each(function (index) {
-                const jurusanOffset = $(this).offset().top - $(window).height() / 2;
-                const isVisible = $(window).scrollTop() > jurusanOffset && $(window).scrollTop() < jurusanOffset + $(this).outerHeight();
-    
-                // Tambahkan animasi sesuai urutan scroll
-                if (isVisible) {
-                    $(this).addClass('scrolled').css('animation-delay', (index * 0.2) + 's');
-                } else {
-                    $(this).removeClass('scrolled'); // Hilangkan class jika di luar jangkauan
-                }
-            });
-        } else {
-            // Fade-out seluruh jurusan_card jika keluar dari section
-            $('.jurusan_card').removeClass('scrolled');
-            jurusanSection.removeClass('scrolled');
-        }
-    });
-    
-    
-      
-  // Memeriksa apakah #Rekapitulasi sudah masuk dalam viewport
-const Rekapitulasi = document.getElementById("Rekapitulasi");
-const cards = document.querySelectorAll(".card");
-
-let delay = 0; // Variabel untuk menambahkan jeda waktu antara card
-
-const observer = new IntersectionObserver((entries, observer) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      // Menambahkan animasi pada card yang berada dalam viewport
-      entry.target.classList.remove("opacity-0");
-      entry.target.classList.add("animate__animated", "animate__bounceInUp");
-      entry.target.style.animationDelay = `${delay}s`; // Menambahkan jeda waktu
-
-      // Meningkatkan delay setiap kali card muncul
-      delay += 0.2;
-
-      // Menjalankan penghitung setelah animasi selesai
-      const Rekapitulasi = document.querySelectorAll(".Rekapitulasi");
-
-      Rekapitulasi.forEach((num) => {
-        const incrementCounter = () => {
-          const targetNumber = +num.getAttribute("data-target-number");
-          const currentNumber = parseInt(num.innerText.replace(/,/g, "")) || 0;
-
-          // Tentukan langkah berdasarkan targetNumber
-          const increment = Math.max(1, Math.floor(targetNumber / 100)); // Minimal langkah adalah 1
-
-          if (currentNumber < targetNumber) {
-            num.innerText = Math.min(currentNumber + increment, targetNumber).toLocaleString();
-            setTimeout(incrementCounter, 10);
-          } else {
-            num.innerText = targetNumber.toLocaleString();
-          }
-        };
-        incrementCounter();
-      });
-
-      // Setelah animasi selesai, observer bisa berhenti
-      observer.unobserve(entry.target);
-    }
-  });
-}, {
-  threshold: 0.5 // Ketika 50% dari card sudah terlihat di viewport
-});
-
-// Menambahkan observer pada setiap card
-cards.forEach(card => {
-  observer.observe(card);
-});
-
-
-document.addEventListener("DOMContentLoaded", () => {
-  const cards = document.querySelectorAll("#FasilitasSekolah .card_facility");
-  const observerOptions = {
-    threshold: 0.1, // Cards akan mulai terlihat saat 10% dari elemennya masuk viewport
-  };
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry, index) => {
-      if (entry.isIntersecting) {
-        // Tambahkan delay untuk animasi bertahap
-        setTimeout(() => {
-          entry.target.classList.add(
-            "animate__animated",
-            "animate__fadeInUpBig"
-          );
-          entry.target.classList.remove("opacity-0");
-        }, index * 200); // Delay setiap card 200ms
-      }
-    });
-  }, observerOptions);
-
-  // Observe setiap card
-  cards.forEach((card) => observer.observe(card));
-});
-
-
-
-  const swiper = new Swiper('.ekskul-swiper', {
-      loop: true,
-  spaceBetween: 20,
-  slidesPerView: 1,
-  autoplay: {
-    delay: 1000, // 3 seconds delay for auto-swiping
-    disableOnInteraction: false, // Continue auto-swiping even after interaction
-  },
-  breakpoints: {
-    640: {
-      slidesPerView: 2, // 2 cards per view for small screens
-    },
-    1024: {
-      slidesPerView: 3, // 3 cards per view for large screens
-    },
-  },
-  speed: 800, // Smooth transition speed for each slide
-});
-
-  // Add hover animation on icons
-  const icons = document.querySelectorAll('i');
-  icons.forEach(icon => {
-    icon.addEventListener('mouseover', () => {
-      icon.classList.add('animate__animated', 'animate__pulse');
-    });
-    icon.addEventListener('animationend', () => {
-      icon.classList.remove('animate__animated', 'animate__pulse');
-    });
-  });
-
-  
-    </script>
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "EducationalOrganization",
-      "name": "SMK Bina Siswa 2 Cililin",
-      "url": "https://smkbinasiswa2cililin.my.id/",
-      "logo": "https://smkbinasiswa2cililin.my.id/static/Assets/Icon/Icon_sch.png",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Jl. Pasir Panjang Tj. Sari No.10",
-        "addressLocality": "Waduk",
-        "addressRegion": "West Bandung Regency",
-        "addressCountry": "ID",
-        "postalCode": "40562"
-      },
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "telephone": "+62-812-2176-3848",
-        "contactType": "Customer Service",
-        "areaServed": "ID",
-        "availableLanguage": "Bahasa Indonesia"
-      },
-      "sameAs": [
-      "https://facebook.com/SmkBinaSiswa2Cililin",
-      "https://www.instagram.com/smkbinasiswa2",
-      "https://www.tiktok.com/@smkbinsis2cililin",
-      "https://dapo.kemdikbud.go.id/sekolah/DB1562F8C420FF433C0E"
-      ],
-      "educationalCredentialAwarded": "Diploma",
-      "department": [
-        {
-          "@type": "Department",
-          "name": "Jurusan Teknik Komputer dan Jaringan (TKJ)"
-        },
-        {
-          "@type": "Department",
-          "name": "Jurusan Teknik & Bisnis Sepeda Motor"
-        }
-      ],
-      "identifier": {
-        "@type": "PropertyValue",
-        "name": "NPSN",
-        "value": "20279922"
-      },
-      "status": "Swasta",
-      "educationalOccupationalCredential": "SMK",
-      "ownership": "Yayasan",
-      "foundingDate": "2011-06-20",
-      "legalName": "SMK Bina Siswa 2 Cililin",
-      "schoolType": "SMK",
-      "registrationNumber": "421.3/109",
-      "operationalLicense": "421/4150/Disdikpora 2013",
-      "contact": {
-        "telephone": "081221763848"
-      }
-    }
-    
-    </script>
     
 </body>
 </html>
