@@ -76,6 +76,32 @@
     }
     
     </script>
+    <script>
+
+document.addEventListener("DOMContentLoaded", () => {
+  const cards = document.querySelectorAll("#FasilitasSekolah .card_facility");
+  const observerOptions = {
+    threshold: 0.1, // Cards akan mulai terlihat saat 10% dari elemennya masuk viewport
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, index) => {
+      if (entry.isIntersecting) {
+        // Tambahkan delay untuk animasi bertahap
+        setTimeout(() => {
+          entry.target.classList.add(
+            "animate__animated",
+            "animate__fadeInUpBig"
+          );
+          entry.target.classList.remove("opacity-0");
+        }, index * 200); // Delay setiap card 200ms
+      }
+    });
+  }, observerOptions);
+
+  // Observe setiap card
+  cards.forEach((card) => observer.observe(card));
+});    </script>
   </head>
 <body>
 
@@ -1068,83 +1094,7 @@
     });
     
     
-      
-  // Memeriksa apakah #Rekapitulasi sudah masuk dalam viewport
-const Rekapitulasi = document.getElementById("Rekapitulasi");
-const cards = document.querySelectorAll(".card");
-
-let delay = 0; // Variabel untuk menambahkan jeda waktu antara card
-
-const observer = new IntersectionObserver((entries, observer) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      // Menambahkan animasi pada card yang berada dalam viewport
-      entry.target.classList.remove("opacity-0");
-      entry.target.classList.add("animate__animated", "animate__bounceInUp");
-      entry.target.style.animationDelay = `${delay}s`; // Menambahkan jeda waktu
-
-      // Meningkatkan delay setiap kali card muncul
-      delay += 0.2;
-
-      // Menjalankan penghitung setelah animasi selesai
-      const Rekapitulasi = document.querySelectorAll(".Rekapitulasi");
-
-      Rekapitulasi.forEach((num) => {
-        const incrementCounter = () => {
-          const targetNumber = +num.getAttribute("data-target-number");
-          const currentNumber = parseInt(num.innerText.replace(/,/g, "")) || 0;
-
-          // Tentukan langkah berdasarkan targetNumber
-          const increment = Math.max(1, Math.floor(targetNumber / 100)); // Minimal langkah adalah 1
-
-          if (currentNumber < targetNumber) {
-            num.innerText = Math.min(currentNumber + increment, targetNumber).toLocaleString();
-            setTimeout(incrementCounter, 10);
-          } else {
-            num.innerText = targetNumber.toLocaleString();
-          }
-        };
-        incrementCounter();
-      });
-
-      // Setelah animasi selesai, observer bisa berhenti
-      observer.unobserve(entry.target);
-    }
-  });
-}, {
-  threshold: 0.5 // Ketika 50% dari card sudah terlihat di viewport
-});
-
-// Menambahkan observer pada setiap card
-cards.forEach(card => {
-  observer.observe(card);
-});
-
-
-document.addEventListener("DOMContentLoaded", () => {
-  const cards = document.querySelectorAll("#FasilitasSekolah .card_facility");
-  const observerOptions = {
-    threshold: 0.1, // Cards akan mulai terlihat saat 10% dari elemennya masuk viewport
-  };
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry, index) => {
-      if (entry.isIntersecting) {
-        // Tambahkan delay untuk animasi bertahap
-        setTimeout(() => {
-          entry.target.classList.add(
-            "animate__animated",
-            "animate__fadeInUpBig"
-          );
-          entry.target.classList.remove("opacity-0");
-        }, index * 200); // Delay setiap card 200ms
-      }
-    });
-  }, observerOptions);
-
-  // Observe setiap card
-  cards.forEach((card) => observer.observe(card));
-});
+ 
 
 
 
@@ -1180,7 +1130,62 @@ document.addEventListener("DOMContentLoaded", () => {
 
   
     </script>
-
+    <script>
+           
+      // Memeriksa apakah #Rekapitulasi sudah masuk dalam viewport
+    const Rekapitulasi = document.getElementById("Rekapitulasi");
+    const cards = document.querySelectorAll(".card");
+    
+    let delay = 0; // Variabel untuk menambahkan jeda waktu antara card
+    
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          // Menambahkan animasi pada card yang berada dalam viewport
+          entry.target.classList.remove("opacity-0");
+          entry.target.classList.add("animate__animated", "animate__bounceInUp");
+          entry.target.style.animationDelay = `${delay}s`; // Menambahkan jeda waktu
+    
+          // Meningkatkan delay setiap kali card muncul
+          delay += 0.2;
+    
+          // Menjalankan penghitung setelah animasi selesai
+          const Rekapitulasi = document.querySelectorAll(".Rekapitulasi");
+    
+          Rekapitulasi.forEach((num) => {
+            const incrementCounter = () => {
+              const targetNumber = +num.getAttribute("data-target-number");
+              const currentNumber = parseInt(num.innerText.replace(/,/g, "")) || 0;
+    
+              // Tentukan langkah berdasarkan targetNumber
+              const increment = Math.max(1, Math.floor(targetNumber / 100)); // Minimal langkah adalah 1
+    
+              if (currentNumber < targetNumber) {
+                num.innerText = Math.min(currentNumber + increment, targetNumber).toLocaleString();
+                setTimeout(incrementCounter, 10);
+              } else {
+                num.innerText = targetNumber.toLocaleString();
+              }
+            };
+            incrementCounter();
+          });
+    
+          // Setelah animasi selesai, observer bisa berhenti
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.5 // Ketika 50% dari card sudah terlihat di viewport
+    });
+    
+    // Menambahkan observer pada setiap card
+    cards.forEach(card => {
+      observer.observe(card);
+    });
+    
+    
+          </script>
+    
     <script>
       document.addEventListener("DOMContentLoaded", function() {
         const titleText = [
