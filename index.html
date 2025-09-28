@@ -157,47 +157,59 @@
   </style>
 </head>
 <body class="antialiased bg-[var(--paper-black)] text-[var(--ink-white)] font-rubik min-h-screen grain">
-  <main class="min-h-screen flex items-center justify-center p-6">
-    <section class="manifest relative w-full max-w-xl mx-auto p-8 md:p-12 rounded-2xl ripped border-[rgba(255,255,255,0.04)]">
-      <!-- Top ribbon -->
-      <div class="flex items-center gap-4 mb-6">
-        <img src="anarchy-logo.png" alt="Anarchy Logo" class="anarchy-symbol" />
+<main class="min-h-screen flex items-center justify-center p-4 sm:p-6">
+  <section class="manifest relative w-full max-w-3xl mx-auto p-4 sm:p-6 md:p-10 rounded-2xl ripped border border-[rgba(255,255,255,0.04)]">
 
-        <h1 class="text-2xl md:text-3xl leading-tight glitch" data-text="Peringatan!!">Peringatan!!</h1>
+    <!-- Top ribbon -->
+    <div class="flex flex-col sm:flex-row items-center sm:items-start gap-3 sm:gap-4 mb-6 text-center sm:text-left">
+      <img src="anarchy-logo.png" alt="Anarchy Logo" class="anarchy-symbol w-14 h-14 sm:w-20 sm:h-20 mx-auto sm:mx-0" />
+      <h1 class="text-xl sm:text-2xl md:text-3xl font-extrabold leading-tight glitch" 
+          data-text="Peringatan!!">Peringatan!!</h1>
+    </div>
+
+    <!-- Content box -->
+    <div class="bg-[rgba(0,0,0,0.55)] p-4 sm:p-6 md:p-8 rounded-xl border border-[rgba(255,0,0,0.06)] shadow-[0_10px_60px_rgba(0,0,0,0.7)] space-y-5">
+      <p class="text-sm sm:text-base md:text-lg leading-relaxed text-[var(--ink-white)] tracking-wide break-words">
+        Saya meminta klarifikasi dari <span class="font-semibold text-[var(--muted-red)]">oknum guru</span> 
+        yang telah membicarakan hal pribadi saya. Saya meminta tanggung jawab dari pihak sekolah 
+        yang seharusnya melindungi, bukan menghancurkan muridnya. Dan saya meminta seluruh jajaran 
+        instansi ini untuk sadar: 
+        <strong>sekolah bukan tempat diskriminasi, bukan tempat mempermalukan, tapi tempat mendidik!</strong> 
+        orang tua saya sampai sakit akibat tindakan konyol anda!
+      </p>
+
+      <p class="text-sm sm:text-base md:text-lg leading-relaxed">
+        Kalau kalian tidak bisa memahami hal itu, maka kalian tidak layak disebut 
+        <span class="font-bold text-[var(--accent-red)]">pendidik</span>!
+      </p>
+
+      <!-- Legal references -->
+      <div class="bg-[rgba(155,15,15,0.06)] p-4 rounded-md border-l-4 border-[var(--accent-red)]">
+        <ul class="list-disc list-inside space-y-1 sm:space-y-2 text-[var(--ink-white)] text-xs sm:text-sm md:text-base">
+          <li>UU No. 35 Tahun 2014 tentang Perlindungan Anak, <strong>Pasal 54</strong></li>
+          <li>UU No. 39 Tahun 1999 tentang Hak Asasi Manusia, <strong>Pasal 12</strong></li>
+          <li>UUD 1945 <strong>Pasal 28E ayat (2)</strong></li>
+          <li>UU No. 20 Tahun 2003 tentang Sistem Pendidikan Nasional, <strong>Pasal 12 ayat (1)</strong></li>
+        </ul>
       </div>
 
-      <!-- Content box -->
-      <div class="bg-[rgba(0,0,0,0.55)] p-6 md:p-8 rounded-xl border border-[rgba(255,0,0,0.06)] shadow-[0_10px_60px_rgba(0,0,0,0.7)]">
-        <p class="text-sm md:text-base leading-relaxed md:leading-loose text-[var(--ink-white)] tracking-wide">Saya meminta klarifikasi dari <span class="font-semibold text-[var(--muted-red)]">oknum guru</span> yang telah membicarakan hal pribadi saya. Saya meminta tanggung jawab dari pihak sekolah yang seharusnya melindungi, bukan menghancurkan muridnya. Dan saya meminta seluruh jajaran instansi ini untuk sadar: <strong>sekolah bukan tempat diskriminasi, bukan tempat mempermalukan, tapi tempat mendidik!</strong></p>
-
-        <p class="mt-6 text-sm md:text-base leading-relaxed">Kalau kalian tidak bisa memahami hal itu, maka kalian tidak layak disebut <span class="font-bold text-[var(--accent-red)]">pendidik</span>!</p>
-
-        <div class="mt-8 bg-[rgba(155,15,15,0.06)] p-4 rounded-md border-l-4 border-[var(--accent-red)]">
-          <ul class="list-inside space-y-2 text-[var(--ink-white)] text-sm md:text-base">
-            <li>UU No. 35 Tahun 2014 tentang Perlindungan Anak, <strong>Pasal 54</strong></li>
-            <li>UU No. 39 Tahun 1999 tentang Hak Asasi Manusia, <strong>Pasal 12</strong></li>
-            <li>UUD 1945 <strong>Pasal 28E ayat (2)</strong></li>
-            <li>UU No. 20 Tahun 2003 tentang Sistem Pendidikan Nasional, <strong>Pasal 12 ayat (1)</strong></li>
-          </ul>
-        </div>
-
-        <!-- footer note -->
-        <div class="mt-8 flex items-center justify-between gap-4">
-          <div class="text-xs md:text-sm opacity-80">Peringatan ini bersifat publik — hak siswa untuk aman dan dihormati.</div>
-          <div class="text-xs md:text-sm tracking-wider uppercase font-semibold text-[var(--muted-red)]">Sekolah ≠ Diskriminasi</div>
-        </div>
+      <!-- footer note -->
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-2 sm:gap-4 text-center sm:text-left">
+        <div class="text-xs sm:text-sm opacity-80">Peringatan ini bersifat publik, hak siswa untuk aman dan dihormati.</div>
+        <div class="text-xs sm:text-sm tracking-wider uppercase font-semibold text-[var(--muted-red)]">Sekolah ≠ Diskriminasi</div>
       </div>
+    </div>
 
-      <!-- bottom decoration -->
-      <div class="mt-6 flex items-center justify-between text-[10px] opacity-60">
-        <div class="flex items-center gap-2">
-          <span class="inline-block w-4 h-0.5 bg-[var(--muted-red)]"></span>
-          <span>Designed for loud, clear protest</span>
-        </div>
-        <div>— Aktivisme & Anarki visual</div>
+    <!-- bottom decoration -->
+    <div class="mt-6 flex flex-col sm:flex-row items-center justify-between gap-2 text-[10px] sm:text-xs opacity-60 text-center sm:text-left">
+      <div class="flex items-center gap-2">
+        <span class="inline-block w-4 h-0.5 bg-[var(--muted-red)]"></span>
+        <span>Pendidikan Tanpa Intimidasi dan Diskriminasi</span>
       </div>
-    </section>
-  </main>
+      <div>Hentikan Perlakuan Sewenang-wenang!</div>
+    </div>
+  </section>
+</main>
 
   <script>
     document.addEventListener('DOMContentLoaded', function(){
